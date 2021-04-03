@@ -117,12 +117,17 @@
 
     <!-- of note: the custom script doesn't work in the final version either -->
     <script>
-      $(function() {
+     $(document).ready(function(){       
+        var scroll_pos = 0;
         $(document).scroll(function() {
-          var $nav = $("#mainNavbar");
-          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            scroll_pos = $(this).scrollTop();
+            if(scroll_pos > 1000) {
+                $("#mainNavbar").css("background-color", "transparent");
+            } else {
+                $("#mainNavbar").css("background-color", "#a857a8", "transition", "#a857a8 easein 2s");
+            }
         });
-      });
+    });
     </script>
   </body>
 </html>
